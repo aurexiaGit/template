@@ -14,6 +14,7 @@ const sass = require('gulp-sass');
 const autoprefixer = require("gulp-autoprefixer");
 const sourcemaps = require("gulp-sourcemaps");    
 const cleanCSS = require('gulp-clean-css');
+var deploy = require('gulp-gh-pages');
 
 const paths = {
   base:   {
@@ -206,3 +207,8 @@ gulp.task('build', gulp.series(gulp.parallel('clean:packageLock', 'clean:dist', 
 
 // gulp.task('default', gulp.series(gulp.parallel('fileinclude', 'scss'), gulp.parallel('browsersync', 'watch')));
 gulp.task('default', gulp.series(gulp.parallel('clean:packageLock', 'clean:dist', 'copy:all', 'copy:libs', 'fileinclude', 'scss', 'js', 'jsPages', 'html'), gulp.parallel('browsersync', 'watch')));
+
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
+});
