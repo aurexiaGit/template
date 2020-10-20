@@ -79,3 +79,9 @@ Themesbrand is happy to provide support for issues. Shoot us an email at support
 The webpage is available at https://aurexiagit.github.io/template/ .
 
 All content of this page is on the branch gh-pages.
+
+To push changes on this branch, launch command :
+
+```command
+gulp deploy
+```
